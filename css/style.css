@@ -1,0 +1,159 @@
+:root{
+    /* Colores */
+    --Violet: hsl(257, 40%, 49%);
+    --Soft-magenta:  hsl(300, 69%, 71%);
+    /* fuentes */
+    --font1: "Open Sans", sans-serif;
+    --font2: "Poppins", sans-serif;
+    /* Contenerdor */
+    --pading-conteiner: 60px 0;
+}
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--font1);
+    background-color: var(--Violet);
+}
+.hero{
+    background-color: var(--Violet);
+    /*para poder posicionar a un seudoelemento  */
+    position: relative;
+    
+}
+.hero::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 500px;
+    background-image: url(../images/bg-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 400px ;
+}
+/* vamos a empezar por firts movie */
+
+/* contenedores */
+.container{
+    /**/
+    width: 90%;
+    margin: 0 auto;
+    /* background-color: #000; */
+    /* todo lo que salga del contendor se esconda */
+    overflow: hidden;
+    /* ancho maximo de 1200 pixeles */
+    max-width: 1200px;
+    padding: var(--pading-conteiner);
+    position: relative;
+}
+/* Menu de navegacion */
+.nav{
+    /* CAMBIANDO los parametros de la custom */
+    --pading-conteiner: 30px 0;
+}
+/* logo */
+.nav__logo{
+    width: 150px;
+    display: block;
+}
+/* contenedor de los elementos */
+.hero__container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.hero__img{
+    max-width: 300px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.hero__text{
+    margin: 3.5em 0;
+    color: white;
+    text-align: center;
+}
+.hero__title{
+    font-size: 1.7rem;
+    font-family: var(--font2);
+}
+.hero__paragraph{
+    line-height: 1.5;
+    margin: 1.2em 0 1.7em;
+}
+.hero__cta{
+    display: inline-block;
+    color: var(--Violet);
+    background-color: white;
+    text-decoration: none;
+    border-radius:2em ;
+    box-shadow: 0 1px 4px black .5;
+    padding: 1em 6em;
+}
+.hero__cta:hover{
+    
+    color: white;
+    background-color: var(--Soft-magenta);
+}
+/* contenerdor contactos */
+.hero__contact{
+    display: flex;
+    gap: 1.5em;
+}
+
+.hero__link{
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero__link:hover{
+    /* border-color: var(--Soft-magenta); */
+    border: 4px solid var(--Soft-magenta);
+    width: 48px;
+    height: 48px;
+
+}
+.hero__icon{
+    width: 23px;
+}
+
+/* Para dispositivos desktop */
+@media (min-width:768px) {
+    .hero::before{
+        height: 100%;
+        background-image: url(../images/bg-desktop.svg);
+        background-size: 100% 100% ;
+    }   
+    .hero__container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        --pading-conteiner: 20px 0 60px;
+    }
+    .hero__title{
+        font-size: 2rem;
+    }
+    .hero__picture{
+        flex-basis: 45%;
+    }
+    .hero__img{
+        /* tenga su ancho maximo en su valor original */
+        max-width: unset;
+    }
+
+    .hero__text{
+        flex-basis: 50%;
+        text-align: left;
+    }
+    .hero__contact{
+        /* valla al final del main axis */
+        margin-left: auto;
+    }
+}
